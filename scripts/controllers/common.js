@@ -26,4 +26,9 @@ angular.module('galebWebui')
 .controller('BalanceTypeController', function ($scope, ManagerService) {
 	$scope.manager = ManagerService;
 	$scope.manager.loadListResources('balancepolicytype');
+})
+// New API Controllers
+.controller('RoleGroupController', function ($scope, ManagerService) {
+	$scope.manager = ManagerService;
+	$scope.manager.loadListResources('rolegroup');
 });

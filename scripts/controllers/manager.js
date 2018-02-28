@@ -111,6 +111,11 @@ angular.module('galebWebui')
             delete $scope.manager.selectedResource.properties.keyType;
           }
         }
+        if ($scope.manager.apiPath === 'rolegroup') {
+          if (!$scope.manager.selectedResource.properties.keyType || $scope.manager.selectedResource.properties.keyType == "") {
+            delete $scope.manager.selectedResource.properties.keyType;
+          }
+        }
 
         $scope.manager.updateResource($scope.manager.selectedResource).then(function () {
         $scope.managerModal.hide();

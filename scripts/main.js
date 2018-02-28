@@ -152,6 +152,17 @@ angular.module('galebWebui', [
 				apiForce: function() { return '' }
 			}
 		})
+		// New API
+		.state('rolegroup', {
+			url: "/rolegroup",
+			templateUrl: 'views/pages/rolegroup.html',
+			controller: 'ManagerController',
+			resolve: {
+				apiPath: function() { return 'rolegroup' },
+				apiLinks: function() { return '' },
+				apiForce: function() { return '' }
+			}
+		})
 
 		$urlRouterProvider.otherwise('/login');
 
