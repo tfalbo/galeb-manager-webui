@@ -37,12 +37,6 @@ angular.module('galebWebui')
         $scope.manager.selectedResource = resource;
         $scope.mode = 'Edit';
 
-        //remover 
-        // $scope.manager.selectedResource.hcTCP = !angular.isDefined($scope.manager.selectedResource.properties.hcPath) &&
-        //                                         !angular.isDefined($scope.manager.selectedResource.properties.hcStatusCode) &&
-        //                                         !angular.isDefined($scope.manager.selectedResource.properties.hcHost) &&
-        //                                         !angular.isDefined($scope.manager.selectedResource.properties.hcBody);
-
         if ($scope.manager.selectedResource.rulesOrdered) {
           $scope.sortableOptions = {
             placeholder: "placeholder"
