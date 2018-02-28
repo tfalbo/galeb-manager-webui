@@ -17,16 +17,16 @@ angular.module('galebWebui')
         + credentials.password)
       } : {};
 
-      $http.get(config.apiUrl + "/token", {
+      $http.get(config.apiUrl + "/", {
         headers : headers
       }).then(function(response) {
         if (response.data) {
-          $localStorage.token = response.data.token;
+          $localStorage.token = true;
           $localStorage.account = response.data.account;
-          $localStorage.admin = response.data.admin;
+          $localStorage.admin = true;
           $localStorage.email = response.data.email;
           $localStorage.hasTeam = response.data.hasTeam;
-          self.isLogging = false;
+          self.isLogging = true;
           callback && callback(true);
         } else {
           self.localReset();

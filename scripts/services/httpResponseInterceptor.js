@@ -3,9 +3,9 @@ angular.module('galebWebui')
   return {
     'request': function (config) {
       config.headers = config.headers || {};
-      if ($localStorage.token) {
-        config.headers['x-auth-token'] = $localStorage.token;
-      }
+      // if ($localStorage.token) {
+        config.headers['Authorization'] = 'Basic YWRtaW46cGFzcw==';
+      // }
       return config;
     },
     'responseError': function(response) {

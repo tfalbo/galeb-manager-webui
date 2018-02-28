@@ -27,7 +27,7 @@
 
 <body state="{{currentState}}">
 <div ng-controller="AuthController">
-    <nav class="navbar navbar-inverse navbar-fixed-top" ng-if="isAuthenticated()">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand"
@@ -62,11 +62,10 @@
                     <li ui-sref-active="active">
                         <a ui-sref="account">Account</a>
                     </li>
-                    <li class="dropdown" ui-sref-active="active" ng-if="isAdmin()">
+                    <li class="dropdown" ui-sref-active="active">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin
                             <i class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a ui-sref="farm">Farm</a></li>
                             <li><a ui-sref="provider">Provider</a></li>
                             <li class="divider"></li>
                             <li><a ui-sref="balancepolicy">BalancePolicy</a></li>

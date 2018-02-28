@@ -26,8 +26,4 @@ angular.module('galebWebui')
 .controller('RuleDashController', function ($scope, ManagerService) {
 	$scope.manager = ManagerService;
 	$scope.manager.loadResourcesDashboard('rule');
-})
-.controller('FarmDashController', function ($scope, ManagerService) {
-	$scope.manager = ManagerService;
-	$scope.manager.loadResourcesDashboard('farm');
 });

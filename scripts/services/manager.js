@@ -208,30 +208,6 @@ angular.module('galebWebui')
 			});
 			return d.promise;
 		},
-		'reloadFarm': function (resource) {
-			var d = $q.defer();
-			self.isReloading = true;
-			Manager.get({'path': 'reload', 'id': resource.id}, function () {
-				toastr.success(resource.name, 'Reloaded');
-				d.resolve();
-			}, function (error) {
-				toastr.error(error.status + ' - ' + error.statusText, self.errorMsg);
-			});
-			self.isReloading = false;
-			return d.promise;
-		},
-		'unlockFarm': function (resource) {
-			var d = $q.defer();
-			self.isUnlocking = true;
-			Manager.get({'path': 'unlock', 'id': resource.id}, function () {
-				toastr.success(resource.name, 'Unlocked');
-				d.resolve();
-			}, function (error) {
-				toastr.error(error.status + ' - ' + error.statusText, 'Something was wrong');
-			});
-			self.isUnlocking = false;
-			return d.promise;
-		},
 		'showConflict': function () {
 			switch (self.apiPath) {
 				case 'pool':

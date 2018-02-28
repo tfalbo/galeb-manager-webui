@@ -152,22 +152,12 @@ angular.module('galebWebui', [
 				apiForce: function() { return '' }
 			}
 		})
-		.state('farm', {
-			url: "/farm",
-			templateUrl: 'views/pages/farm.html',
-			controller: 'ManagerController',
-			resolve: {
-				apiPath: function() { return 'farm' },
-				apiLinks: function() { return 'provider-environment' },
-				apiForce: function() { return '' }
-			}
-		});
 
 		$urlRouterProvider.otherwise('/login');
 
 		$resourceProvider.defaults.stripTrailingSlashes = false;
 
-		$httpProvider.defaults.headers.common.Authorization = 'Basic ';
+		// $httpProvider.defaults.headers.common.Authorization = 'Basic ';
 		$httpProvider.defaults.useXDomain = true;
 		$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 

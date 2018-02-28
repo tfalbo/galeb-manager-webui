@@ -37,10 +37,11 @@ angular.module('galebWebui')
         $scope.manager.selectedResource = resource;
         $scope.mode = 'Edit';
 
-        $scope.manager.selectedResource.hcTCP = !angular.isDefined($scope.manager.selectedResource.properties.hcPath) &&
-                                                !angular.isDefined($scope.manager.selectedResource.properties.hcStatusCode) &&
-                                                !angular.isDefined($scope.manager.selectedResource.properties.hcHost) &&
-                                                !angular.isDefined($scope.manager.selectedResource.properties.hcBody);
+        //remover 
+        // $scope.manager.selectedResource.hcTCP = !angular.isDefined($scope.manager.selectedResource.properties.hcPath) &&
+        //                                         !angular.isDefined($scope.manager.selectedResource.properties.hcStatusCode) &&
+        //                                         !angular.isDefined($scope.manager.selectedResource.properties.hcHost) &&
+        //                                         !angular.isDefined($scope.manager.selectedResource.properties.hcBody);
 
         if ($scope.manager.selectedResource.rulesOrdered) {
           $scope.sortableOptions = {
@@ -150,72 +151,6 @@ angular.module('galebWebui')
 
     $scope.cleanRuleDefault = function () {
       $scope.manager.selectedResource.ruleDefault = "";
-    };
-
-    $scope.reloadFarm = function (resource) {
-      SweetAlert.swal({
-        title: "Are you sure?",
-        text: "This will remove all content of <b>" + resource.name + "</b><br> and will perform a reload!",
-        showCancelButton: true,
-        confirmButtonColor: "#e51c23",
-        confirmButtonText: "Yes, reload it!",
-        closeOnConfirm: false,
-        html: true
-      }, function(isConfirm) {
-        if (isConfirm) {
-          SweetAlert.swal({
-            title: "Are you really sure?",
-            text: "This is your last chance!",
-            showCancelButton: true,
-            confirmButtonColor: "#e51c23",
-            confirmButtonText: "Reload now!",
-            closeOnConfirm: true,
-            html: true
-          }, function(isConfirmToo) {
-            if (isConfirmToo) {
-              $scope.manager.selectedResource = {};
-
-              if (resource) {
-                $scope.manager.selectedResource = resource;
-              }
-              $scope.manager.reloadFarm($scope.manager.selectedResource);
-            }
-          });
-        }
-      });
-    };
-
-    $scope.unlockFarm = function (resource) {
-      SweetAlert.swal({
-        title: "Are you sure?",
-        text: "This will unlock <b>" + resource.name + "</b> and will perform a sync!",
-        showCancelButton: true,
-        confirmButtonColor: "#e51c23",
-        confirmButtonText: "Yes, unlock it!",
-        closeOnConfirm: false,
-        html: true
-      }, function(isConfirm) {
-        if (isConfirm) {
-          SweetAlert.swal({
-            title: "Are you really sure?",
-            text: "This is your last chance!",
-            showCancelButton: true,
-            confirmButtonColor: "#e51c23",
-            confirmButtonText: "Unlock now!",
-            closeOnConfirm: true,
-            html: true
-          }, function(isConfirmToo) {
-            if (isConfirmToo) {
-              $scope.manager.selectedResource = {};
-
-              if (resource) {
-                $scope.manager.selectedResource = resource;
-              }
-              $scope.manager.unlockFarm($scope.manager.selectedResource);
-            }
-          });
-        }
-      });
     };
 
   $scope.showReportModal = function (virtualhost) {
