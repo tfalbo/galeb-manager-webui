@@ -14,4 +14,8 @@ angular.module('galebWebui')
 })
 .factory("ManagerDashboard", function ($resource, config) {
   return $resource(config.apiUrl + "/:path/?page=0&size=1", {path: '@path'});
-});
+})
+// New API
+.factory("ManagerSearchAccount", function($resource, config){
+  return $resource(config.apiUrl + "/:path/search/findByName?username=:search&page=0&sort=username", {path: '@path', search: '@search'});
+})

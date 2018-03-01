@@ -98,8 +98,8 @@ angular.module('galebWebui', [
 			controller: 'ManagerController',
 			resolve: {
 				apiPath: function() { return 'account' },
-				apiLinks: function() { return 'teams' },
-				apiForce: function() { return {'teams': 'team'} }
+				apiLinks: function() { return '' },
+				apiForce: function() { return '' }
 			}
 		})
 		.state('ruletype', {

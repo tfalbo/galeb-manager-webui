@@ -1,5 +1,5 @@
 angular.module('galebWebui')
-.service('ManagerService', function (Manager, ManagerSearch, ManagerSearchWithSize, ManagerDashboard, $q, toastr, $filter) {
+.service('ManagerService', function (Manager, ManagerSearch, ManagerSearchWithSize, ManagerDashboard, ManagerSearchAccount, $q, toastr, $filter) {
 
 	var self = {
 		'page': 0,
@@ -66,10 +66,14 @@ angular.module('galebWebui')
 					params.sort = self.sortType
 				}
 
-				if (self.searchText != '') {
-					ManagerSelected = ManagerSearch;
-				} else {
+				if (self.searchText == '') {
 					ManagerSelected = Manager;
+				} else {
+					if(self.apiPath == 'account'){
+						ManagerSelected = ManagerSearchAccount;
+					} else {
+						ManagerSelected = ManagerSearch;
+					}
 				}
 
 				ManagerSelected.get(params, function (response) {
@@ -111,7 +115,11 @@ angular.module('galebWebui')
 							});
 						});
 
-						resource['nameStats'] = resource.name.replace(/\./g,'_');
+						if (self.apiPath == 'account'){
+							resource['nameStats'] = resource.username.replace(/\./g,'_');
+						} else {
+							resource['nameStats'] = resource.name.replace(/\./g,'_');
+						}
 						resource['aliasStats'] = {};
 						angular.forEach(resource.aliases, function(item) {
 							resource['aliasStats'][item] = item.replace(/\./g,'_');
