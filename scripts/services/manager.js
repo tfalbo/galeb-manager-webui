@@ -173,14 +173,14 @@ angular.module('galebWebui')
 			Manager.update({'path': self.apiPath, 'id': resource.id}, resource).$promise.then(function () {
 				self.isSaving = false;
 				self.actionReset();
-				toastr.success(resource.name, 'Updated');
+				//toastr.success(resource.name, 'Updated');
 				d.resolve();
 			}, function (error) {
 				self.isSaving = false;
 				if (error.status == 409) {
 					error.data.statusText = self.showConflict();
 				}
-				toastr.error(error.status + ' - ' + error.data.statusText, self.errorMsg);
+				//toastr.error(error.status + ' - ' + error.config.data.statusText, self.errorMsg);
 			});
 			return d.promise;
 		},
