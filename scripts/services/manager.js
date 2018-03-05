@@ -1,5 +1,5 @@
 angular.module('galebWebui')
-.service('ManagerService', function (Manager, ManagerSearch, ManagerSearchWithSize, ManagerDashboard, ManagerSearchAccount, ManagerSearchAllAccount, $q, toastr, $filter) {
+.service('ManagerService', function (Manager, ManagerSearch, ManagerDashboard, ManagerSearchAccount, ManagerSearchAllAccount, $q, toastr, $filter) {
 
 	var self = {
 		'page': 0,
@@ -158,35 +158,17 @@ angular.module('galebWebui')
 				'search': itemName
 			};
 
-			// É account?
+			// Is it account?
 			if(params.path == 'account'){
-				// Está vazio?
 				if (itemName == '') {
 					ManagerSelected = ManagerSearchAllAccount;
-				//Não está vazio?
 				} else {
 					ManagerSelected = ManagerSearchAccount;
 				}
-			// Não é account
+			// Not account
 			} else {
-				// Está vazio?
-				if (itemName == '') {
 					ManagerSelected = ManagerSearch;
-				// Não está vazio?
-				} else {
-					ManagerSelected = ManagerSearchWithSize;
-				}
 			}
-
-			// if (itemName == '') {
-			// 	ManagerSelected = ManagerSearch;
-			// } else {
-			// 	if(params.path == 'account'){
-			// 		ManagerSelected = ManagerSearchAccount;
-			// 	} else {
-			// 		ManagerSelected = ManagerSearchWithSize;
-			// 	}
-			// }
 
 			ManagerSelected.get(params, function (response) {
 				angular.forEach(response._embeddedItems, function(data) {
