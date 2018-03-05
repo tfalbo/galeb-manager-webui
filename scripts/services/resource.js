@@ -17,5 +17,8 @@ angular.module('galebWebui')
 })
 // New API
 .factory("ManagerSearchAccount", function($resource, config){
-  return $resource(config.apiUrl + "/:path/search/findByName?username=:search&page=0&sort=username", {path: '@path', search: '@search'});
+  return $resource(config.apiUrl + "/:path/search/findByUsername?username=:search&page=0&sort=username", {path: '@path', search: '@search'});
+})
+.factory("ManagerSearchAllAccount", function($resource, config){
+  return $resource(config.apiUrl + "/:path/", {path: '@path', search: '@search'});
 })

@@ -1,5 +1,5 @@
 angular.module('galebWebui')
-.service('ManagerService', function (Manager, ManagerSearch, ManagerSearchWithSize, ManagerDashboard, ManagerSearchAccount, $q, toastr, $filter) {
+.service('ManagerService', function (Manager, ManagerSearch, ManagerSearchWithSize, ManagerDashboard, ManagerSearchAccount, ManagerSearchAllAccount, $q, toastr, $filter) {
 
 	var self = {
 		'page': 0,
@@ -158,11 +158,39 @@ angular.module('galebWebui')
 				'search': itemName
 			};
 
-			ManagerSelected = itemName == '' ? ManagerSearch : ManagerSearchWithSize;
+			// É account?
+			if(params.path == 'account'){
+				// Está vazio?
+				if (itemName == '') {
+					ManagerSelected = ManagerSearchAllAccount;
+				//Não está vazio?
+				} else {
+					ManagerSelected = ManagerSearchAccount;
+				}
+			// Não é account
+			} else {
+				// Está vazio?
+				if (itemName == '') {
+					ManagerSelected = ManagerSearch;
+				// Não está vazio?
+				} else {
+					ManagerSelected = ManagerSearchWithSize;
+				}
+			}
+
+			// if (itemName == '') {
+			// 	ManagerSelected = ManagerSearch;
+			// } else {
+			// 	if(params.path == 'account'){
+			// 		ManagerSelected = ManagerSearchAccount;
+			// 	} else {
+			// 		ManagerSelected = ManagerSearchWithSize;
+			// 	}
+			// }
 
 			ManagerSelected.get(params, function (response) {
 				angular.forEach(response._embeddedItems, function(data) {
-					tmpObj = {'id': data.id, 'name': data.name, 'href': data._links.self.href, 'selfLink': data._links.self.href};
+					tmpObj = {'id': data.id, 'name': data.name, 'username':data.username ,'href': data._links.self.href, 'selfLink': data._links.self.href};
 					self[apiPath].push(tmpObj);
 				});
 			});
