@@ -25,15 +25,8 @@
 			<th class="col-2 text-center">
 				Pool
 				<div class="sortables" ng-if="!manager.isSearching">
-					<span ng-click="doSort('parent.name,asc')" class="fa fa-sort-asc"></span>
-					<span ng-click="doSort('parent.name,desc')" class="fa fa-sort-desc"></span>
-				</div>
-			</th>
-			<th class="col-2 text-center">
-				Project
-				<div class="sortables" ng-if="!manager.isSearching">
-					<span ng-click="doSort('project.name,asc')" class="fa fa-sort-asc"></span>
-					<span ng-click="doSort('project.name,desc')" class="fa fa-sort-desc"></span>
+					<span ng-click="doSort('pool.name,asc')" class="fa fa-sort-asc"></span>
+					<span ng-click="doSort('pool.name,desc')" class="fa fa-sort-desc"></span>
 				</div>
 			</th>
             <th class="col-1">&nbsp;</th>
@@ -49,8 +42,7 @@
 				<span class="label label-primary" ng-if="resource.description == 'blue'">BLUE</span>
 				<span class="label label-success" ng-if="resource.description == 'green'">GREEN</span>
 			</td>
-			<td class="text-center">{{resource.parentObj.name}}</td>
-			<td class="text-center">{{resource.projectObj.name}}</td>
+			<td class="text-center">{{resource.poolObj.name}}</td>
             <td class="text-center">
                 <ng-include src="'views/common/buttons.table.html'"></ng-include>
 			</td>

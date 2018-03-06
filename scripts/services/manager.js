@@ -77,9 +77,13 @@ angular.module('galebWebui')
 				}
 
 				ManagerSelected.get(params, function (response) {
+					console.log(response);
 					angular.forEach(response._embeddedItems, function(resource) {
+						console.log(resource);
 						angular.forEach(self.apiLinks, function(link) {
+							console.log(link);
 							resource._resources(link).get(function (subItem) {
+								console.log(subItem);
 								var tmpObj = [];
 								if (subItem._embeddedItems) {
 									var tmpArr = [];
@@ -87,7 +91,7 @@ angular.module('galebWebui')
 									var tmpTargetList = [];
 									angular.forEach(subItem._embeddedItems, function(item) {
 										if (resource.rulesOrdered) {
-											tmpObj = {'id':item.id,'name':item.name,'match':item.properties.match,'global':item.global, 'selfLink': item._links.self.href};
+											tmpObj = {'id':item.id,'name':item.name,'matching':item.matching,'global':item.global, 'selfLink': item._links.self.href};
 
 											if (link == 'rules') {
 												item._resources('pool').get(function (poolItem) {
@@ -287,7 +291,7 @@ angular.module('galebWebui')
 						tmpRule = {
 							'id': rule.id,
 							'name': rule.name,
-							'match': rule.properties.match,
+							'matching': rule.matching,
 							'global': rule.global,
 							'status': rule._status,
 							'pool': tmpPool

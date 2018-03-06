@@ -48,8 +48,8 @@ angular.module('galebWebui', [
 			controller: 'ManagerController',
 			resolve: {
 				apiPath: function() { return 'rule' },
-				apiLinks: function() { return 'pool-ruleType-parents' },
-				apiForce: function() { return {'pool': 'pool', 'parents': 'virtualhost'} }
+				apiLinks: function() { return '' },
+				apiForce: function() { return {'pool': 'pool'} }
 			}
 		})
 		.state('pool', {
@@ -58,7 +58,7 @@ angular.module('galebWebui', [
 			controller: 'ManagerController',
 			resolve: {
 				apiPath: function() { return 'pool' },
-				apiLinks: function() { return 'environment-project-balancePolicy' },
+				apiLinks: function() { return 'environment-project-balancepolicy' },
 				apiForce: function() { return {'project': 'project'} }
 			}
 		})
@@ -68,8 +68,8 @@ angular.module('galebWebui', [
 			controller: 'ManagerController',
 			resolve: {
 				apiPath: function() { return 'target' },
-				apiLinks: function() { return 'project-parent' },
-				apiForce: function() { return {'project': 'project', 'parent': 'pool'} }
+				apiLinks: function() { return 'pool' },
+				apiForce: function() { return {'pool': 'pool'} }
 			}
 		})
 		.state('project', {
@@ -138,7 +138,7 @@ angular.module('galebWebui', [
 			controller: 'ManagerController',
 			resolve: {
 				apiPath: function() { return 'balancepolicy' },
-				apiLinks: function() { return 'balancePolicyType' },
+				apiLinks: function() { return '' },
 				apiForce: function() { return '' }
 			}
 		})
