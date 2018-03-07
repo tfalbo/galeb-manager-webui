@@ -204,7 +204,7 @@ angular.module('galebWebui')
 			Manager.delete({'path': self.apiPath, 'id': resource.id}, resource).$promise.then(function () {
 				self.isDeleting = false;
 				self.actionReset();
-				toastr.success(resource.name, 'Deleted');
+				//toastr.success(resource.name, 'Deleted');
 				d.resolve();
 			}, function (error) {
 				self.isDeleting = false;
@@ -212,7 +212,7 @@ angular.module('galebWebui')
 				if (error.status == 409) {
 					error.data.statusText = self.showConflict();
 				}
-				toastr.error(error.status + ' - ' + error.data.statusText, self.errorMsg);
+				//toastr.error(error.status + ' - ' + error.data.statusText, self.errorMsg);
 			});
 			return d.promise;
 		},
@@ -222,11 +222,11 @@ angular.module('galebWebui')
 			Manager.save({'path': self.apiPath}, resource).$promise.then(function () {
 				self.isSaving = false;
 				self.actionReset();
-				toastr.success(resource.name, 'Created');
+				//toastr.success(resource.name, 'Created');
 				d.resolve();
 			}, function (error) {
 				self.isSaving = false;
-				toastr.error(error.status + ' - ' + error.data.statusText, self.errorMsg);
+				//toastr.error(error.status + ' - ' + error.data.statusText, self.errorMsg);
 			});
 			return d.promise;
 		},
