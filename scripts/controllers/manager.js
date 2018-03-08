@@ -102,9 +102,9 @@ angular.module('galebWebui')
           }
         }
         if ($scope.manager.apiPath === 'virtualhost') {
-          if (!$scope.manager.selectedResource.properties.allows || $scope.manager.selectedResource.properties.allows == "") {
-            delete $scope.manager.selectedResource.properties.allows;
-          }
+          // if (!$scope.manager.selectedResource.properties.allows || $scope.manager.selectedResource.properties.allows == "") {
+          //   delete $scope.manager.selectedResource.properties.allows;
+          //}
         }
         if ($scope.manager.apiPath === 'balancepolicy') {
           if (!$scope.manager.selectedResource.properties.keyType || $scope.manager.selectedResource.properties.keyType == "") {

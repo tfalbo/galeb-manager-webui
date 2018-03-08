@@ -38,8 +38,8 @@ angular.module('galebWebui', [
 			controller: 'ManagerController',
 			resolve: {
 				apiPath: function() { return 'virtualhost' },
-				apiLinks: function() { return 'environment-project-rules-ruleDefault' },
-				apiForce: function() { return {'project': 'project', 'rules': 'rules'} }
+				apiLinks: function() { return '' },
+				apiForce: function() { return {'project': 'project'} }
 			}
 		})
 		.state('rule', {
