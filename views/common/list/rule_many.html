@@ -1,0 +1,16 @@
+<div class="form-group">
+        <label class="col-sm-3 control-label">Rules</label>
+      
+        <div class="col-sm-8">
+          <ui-select ng-model="manager.selectedResource.rules" close-on-select="false" multiple>
+            <ui-select-match placeholder="Select rules...">{{ $item.name }}</ui-select-match>
+            <ui-select-choices repeat="rule.selfLink as rule in manager.rule | filter: { name: $select.search }"
+            refresh="manager.loadListResources('rule', $select.search)"
+            refresh-delay="500"
+            minimum-input-length="2">
+              <div ng-bind-html="rule.name | highlight: $select.search"></div>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+      </div>
+      
