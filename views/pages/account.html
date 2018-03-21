@@ -2,12 +2,6 @@
 	<div class="col-lg-12">
 		<h3 class="page-header">
 			Account
-			<div class="pull-right" ng-if="isAdmin()">
-				<button type="button" class="btn btn-success" ng-click="showManagerModal()">
-					Create
-				</button>
-			</div>
-
 			<div class="pull-right">
 				<form name="form-search" class="form-inline form-search" ng-submit="doSearch()" novalidate>
 					<div class="form-group">
@@ -35,16 +29,12 @@
 			<th class="col-05 text-center">#</th>
 			<th class="col-2">Username</th>
 			<th class="col-2">E-mail</th>
-			<th class="col-1">&nbsp;</th>
 		</tr>
 		</thead>
 		<tr ng-repeat="resource in manager.resources">
 			<td class="text-center">{{resource.id}}</td>
 		    <td>{{resource.username}}</td>
 			<td>{{resource.email}}</td>
-			<td class="text-center">
-					<ng-include src="'views/common/buttons.table.html'"></ng-include>
-			</td>
 		</tr>
 	</table>
 
